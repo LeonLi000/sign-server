@@ -1,7 +1,7 @@
 mod ckb_sign_util;
 mod config;
 mod eth_sign_util;
-mod generated;
+pub mod generated;
 mod hasher;
 mod indexer;
 mod types;
