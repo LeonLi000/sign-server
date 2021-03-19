@@ -1,6 +1,7 @@
 mod ckb_sign_util;
 mod config;
 mod eth_sign_util;
+mod indexer;
 mod types;
 
 use crate::ckb_sign_util::{
@@ -19,8 +20,9 @@ use ckb_types::packed::{CellOutput, OutPoint};
 use ckb_types::prelude::Entity;
 use clap::Clap;
 use force_eth_types::hasher::Blake2bHasher;
-use force_sdk::cell_collector::get_live_cell_by_typescript;
-use force_sdk::indexer::IndexerRpcClient;
+// use force_sdk::cell_collector::get_live_cell_by_typescript;
+// use force_sdk::indexer::IndexerRpcClient;
+use crate::indexer::{get_live_cell_by_typescript, IndexerRpcClient};
 use jsonrpc_http_server::jsonrpc_core::{Error, IoHandler, Params, Value};
 use jsonrpc_http_server::{AccessControlAllowOrigin, DomainsValidation, ServerBuilder};
 use secp256k1::SecretKey;

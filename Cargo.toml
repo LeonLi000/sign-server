@@ -31,5 +31,7 @@ shellexpand = "2.0.0"
 rocksdb = { package = "ckb-rocksdb", version = "0.14.1", features = ["snappy"] }
 sparse-merkle-tree = { version = "0.3.1-pre", default-features = false }
 merkle-cbt = "0.2.2"
-force-sdk = { path = "../sdk" }
+#force-sdk = { path = "../sdk" }
 futures = "0.3.4"
+failure = "0.1.5"
+reqwest = "^0.9"
