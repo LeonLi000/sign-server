@@ -1,3 +1,4 @@
+use crate::generated::eth_header_cell::ETHHeaderCellMerkleDataReader;
 use anyhow::{anyhow, Result};
 use ckb_hash::{blake2b_256, new_blake2b};
 use ckb_jsonrpc_types as rpc_types;
@@ -10,7 +11,6 @@ use ckb_types::packed::{
 };
 use ckb_types::prelude::*;
 use ckb_types::{h256, packed, H160, H256};
-use force_eth_types::generated::eth_header_cell::ETHHeaderCellMerkleDataReader;
 use secp256k1::SecretKey;
 use serde::{Deserialize, Serialize};
 use std::collections::{HashMap, HashSet};

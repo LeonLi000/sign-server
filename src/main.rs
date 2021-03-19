@@ -1,6 +1,8 @@
 mod ckb_sign_util;
 mod config;
 mod eth_sign_util;
+mod generated;
+mod hasher;
 mod indexer;
 mod types;
 
@@ -10,6 +12,8 @@ use crate::ckb_sign_util::{
 };
 use crate::config::{get_config_path, SignServerConfig};
 use crate::eth_sign_util::{get_msg_signature, get_secret_key, Web3Client};
+use crate::hasher::Blake2bHasher;
+use crate::indexer::{get_live_cell_by_typescript, IndexerRpcClient};
 use crate::types::{Opts, ServerArgs, SubCommand};
 use anyhow::{anyhow, Result};
 use ckb_sdk::HttpRpcClient;
@@ -19,10 +23,6 @@ use ckb_types::packed;
 use ckb_types::packed::{CellOutput, OutPoint};
 use ckb_types::prelude::Entity;
 use clap::Clap;
-use force_eth_types::hasher::Blake2bHasher;
-// use force_sdk::cell_collector::get_live_cell_by_typescript;
-// use force_sdk::indexer::IndexerRpcClient;
-use crate::indexer::{get_live_cell_by_typescript, IndexerRpcClient};
 use jsonrpc_http_server::jsonrpc_core::{Error, IoHandler, Params, Value};
 use jsonrpc_http_server::{AccessControlAllowOrigin, DomainsValidation, ServerBuilder};
 use secp256k1::SecretKey;

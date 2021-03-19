@@ -1,0 +1,9 @@
+array Byte32 [byte; 32];
+array Uint64 [byte; 8];
+
+struct ETHHeaderCellMerkleData {
+    merkle_root: Byte32,
+    start_height: Uint64,
+    latest_height: Uint64,
+}
+

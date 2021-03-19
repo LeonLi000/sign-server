@@ -115,19 +115,6 @@ pub enum Order {
     Asc,
 }
 
-// #[derive(Clone, Default, Serialize, Deserialize, PartialEq, Eq, Hash, Debug)]
-// pub struct Tip {
-//     pub block_hash: H256,
-//     pub block_number: BlockNumber,
-// }
-
-// #[derive(Clone, Default, Serialize, Deserialize, PartialEq, Eq, Hash, Debug)]
-// pub struct CellsCapacity {
-//     pub capacity: Capacity,
-//     pub block_hash: H256,
-//     pub block_number: BlockNumber,
-// }
-
 #[derive(Clone, Default, Serialize, Deserialize, PartialEq, Eq, Hash, Debug)]
 pub struct Cell {
     pub output: CellOutput,
@@ -136,22 +123,6 @@ pub struct Cell {
     pub block_number: BlockNumber,
     pub tx_index: Uint32,
 }
-
-// #[derive(Clone, Serialize, Deserialize, PartialEq, Eq, Hash, Debug)]
-// pub struct Tx {
-//     pub tx_hash: H256,
-//     pub block_number: BlockNumber,
-//     pub tx_index: Uint32,
-//     pub io_index: Uint32,
-//     pub io_type: IOType,
-// }
-
-// #[derive(Clone, Serialize, Deserialize, PartialEq, Eq, Hash, Debug)]
-// #[serde(rename_all = "snake_case")]
-// pub enum IOType {
-//     Input,
-//     Output,
-// }
 
 #[derive(Clone, Default, Serialize, Deserialize, PartialEq, Eq, Hash, Debug)]
 pub struct Pagination<T> {
