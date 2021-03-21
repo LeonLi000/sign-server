@@ -50,3 +50,28 @@ pub fn get_config_path() -> String {
     }
     DEFAULT_CONFIG_PATH.to_string()
 }
+
+pub fn get_network(network: String) -> (String, String, String) {
+    match network.as_str() {
+        "dev" => (
+            "http://127.0.0.1:8545".to_string(),
+            "http://127.0.0.1:8114".to_string(),
+            "http://127.0.0.1:8116".to_string(),
+        ),
+        "testnet" => (
+            "https://ropsten.infura.io/v3/9c7178cede9f4a8a84a151d058bd609c".to_string(),
+            "http://127.0.0.1:8114".to_string(),
+            "http://127.0.0.1:8116".to_string(),
+        ),
+        "prod" => (
+            "https://mainnet.infura.io/v3/9c7178cede9f4a8a84a151d058bd609c".to_string(),
+            "http://127.0.0.1:8114".to_string(),
+            "http://127.0.0.1:8116".to_string(),
+        ),
+        _ => (
+            "http://127.0.0.1:8545".to_string(),
+            "http://127.0.0.1:8114".to_string(),
+            "http://127.0.0.1:8116".to_string(),
+        ),
+    }
+}

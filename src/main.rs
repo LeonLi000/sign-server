@@ -10,7 +10,7 @@ use crate::ckb_sign_util::{
     generate_from_lockscript, get_live_cell_with_cache, get_privkey_signer, parse_cell,
     parse_merkle_cell_data, to_multisig_config, MultisigConf, TxHelper,
 };
-use crate::config::{get_config_path, SignServerConfig};
+use crate::config::{get_config_path, get_network, SignServerConfig};
 use crate::eth_sign_util::{get_msg_signature, get_secret_key, Web3Client};
 use crate::hasher::Blake2bHasher;
 use crate::indexer::{get_live_cell_by_typescript, IndexerRpcClient};
@@ -55,14 +55,19 @@ pub async fn handler(opt: Opts) -> Result<()> {
 }
 
 pub async fn server_handle(args: ServerArgs) -> Result<()> {
+    let (eth_rpc_url, ckb_rpc_url, ckb_indexer_url) = if args.network.is_empty() {
+        (args.eth_rpc_url, args.ckb_rpc_url, args.ckb_indexer_url)
+    } else {
+        get_network(args.network)
+    };
     let config = SignServerConfig {
         config_path: args.config_path.clone(),
         ckb_key_path: args.ckb_key_path,
         eth_key_path: args.eth_key_path,
         cell_script: args.cell_script,
-        eth_rpc_url: args.eth_rpc_url,
-        ckb_rpc_url: args.ckb_rpc_url,
-        ckb_indexer_url: args.ckb_indexer_url,
+        eth_rpc_url,
+        ckb_rpc_url,
+        ckb_indexer_url,
     };
     let config_path = tilde(args.config_path.as_str()).into_owned();
     config.write(config_path.as_str())?;
