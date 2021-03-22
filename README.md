@@ -1,11 +1,15 @@
 # sign-server
 Multi-signature server for force-bridge-eth.
 
-## Build this project
+# Installation
+## Download release
+Download static-linked build [here]()
+
+## Build from source
 ```
 git clone https://github.com/LeonLi000/force-bridge-eth.git
 cd sign-server
-cargo build
+cargo build -Z unstable-options --release --out-dir .
 ```
 
 ## Usage
@@ -34,6 +38,7 @@ OPTIONS:
         --eth-key-path <eth-key-path>          [default: conf/eth_key]
         --eth-rpc-url <eth-rpc-url>            [default: http://127.0.0.1:8545]
         --listen-url <listen-url>              [default: 0.0.0.0:3031]
+        --network <network>                    [default: ]
 ```
 ### Example: 
 
