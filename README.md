@@ -7,7 +7,7 @@ Download static-linked build [here]()
 
 ## Build from source
 ```
-git clone https://github.com/LeonLi000/force-bridge-eth.git
+git clone https://github.com/nervosnetwork/sign-server.git
 cd sign-server
 cargo build -Z unstable-options --release --out-dir .
 ```
@@ -15,7 +15,7 @@ cargo build -Z unstable-options --release --out-dir .
 ## Usage
 
 ``` shell
-➜  sign-server ✗ ./sign-server run --help 
+➜  ./sign-server run --help 
   
 sign-server-run 
 
